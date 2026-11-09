@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="uk">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Зворотний зв'язок — EQUILOCK</title>
+  <meta name="description" content="Форма зворотного зв'язку EQUILOCK — escrow-платформи для P2P/OTC угод USDT/UAH.">
+  <script src="https://cdn.tailwindcss.com/3.4.17"></script>
+  <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body class="min-h-screen bg-slate-50 text-slate-900 antialiased">
+  <header class="border-b border-slate-200 bg-white">
+    <div class="mx-auto flex max-w-2xl items-center gap-3 px-4 py-4">
+      <span class="inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-emerald-700 text-sm font-bold text-white" aria-hidden="true">EQ</span>
+      <div class="min-w-0">
+        <p class="text-base font-semibold tracking-wide">EQUILOCK</p>
+        <p class="text-sm text-slate-500">Escrow для P2P/OTC угод USDT/UAH</p>
+      </div>
+    </div>
+  </header>
+
+  <main id="main" class="mx-auto max-w-2xl px-4 py-8 md:py-12">
+    <section aria-labelledby="form-title" class="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm md:p-8">
+      <h1 id="form-title" class="text-2xl font-semibold">Зворотний зв'язок</h1>
+      <p class="mt-2 text-base text-slate-600">
+        Маєте питання щодо угоди чи роботи escrow? Залиште повідомлення — ми відповімо на email або телефон.
+      </p>
+      <p class="mt-1 text-sm text-slate-500">Усі поля обов'язкові.</p>
+
+      <form id="feedback-form" aria-labelledby="form-title" class="mt-6 grid grid-cols-1 gap-5 md:grid-cols-2" novalidate>
+        <!-- Ім'я -->
+        <div class="min-w-0">
+          <label for="name" class="mb-1.5 block text-sm font-medium text-slate-700">Ім'я</label>
+          <input
+            id="name" name="name" type="text"
+            autocomplete="name" maxlength="50" required
+            placeholder="напр. Олена"
+            aria-describedby="name-error"
+            class="field block min-h-11 w-full rounded-lg border border-slate-500 bg-white px-3 py-2 text-base text-slate-900 placeholder:text-slate-500 transition-colors duration-150 focus:outline-none focus:ring-2 focus:ring-emerald-600">
+          <p id="name-error" class="field-message mt-1.5 min-h-5 text-sm break-words" aria-live="polite"></p>
+        </div>
+
+        <!-- Email -->
+        <div class="min-w-0">
+          <label for="email" class="mb-1.5 block text-sm font-medium text-slate-700">Email</label>
+          <input
+            id="email" name="email" type="email"
+            autocomplete="email" inputmode="email" maxlength="254" required
+            placeholder="напр. name@example.com"
+            aria-describedby="email-error"
+            class="field block min-h-11 w-full rounded-lg border border-slate-500 bg-white px-3 py-2 text-base text-slate-900 placeholder:text-slate-500 transition-colors duration-150 focus:outline-none focus:ring-2 focus:ring-emerald-600">
+          <p id="email-error" class="field-message mt-1.5 min-h-5 text-sm break-words" aria-live="polite"></p>
+        </div>
+
+        <!-- Телефон -->
+        <div class="min-w-0 md:col-span-2">
+          <label for="phone" class="mb-1.5 block text-sm font-medium text-slate-700">Телефон</label>
+          <input
+            id="phone" name="phone" type="tel"
+            autocomplete="tel" inputmode="tel" maxlength="25" required
+            placeholder="напр. +380501234567"
+            aria-describedby="phone-hint phone-error"
+            class="field block min-h-11 w-full rounded-lg border border-slate-500 bg-white px-3 py-2 text-base text-slate-900 placeholder:text-slate-500 transition-colors duration-150 focus:outline-none focus:ring-2 focus:ring-emerald-600">
+          <p id="phone-hint" class="mt-1.5 text-sm text-slate-500">Формат: +380XXXXXXXXX. Можна ввести 0501234567 — номер буде перетворено автоматично.</p>
+          <p id="phone-error" class="field-message mt-1 min-h-5 text-sm break-words" aria-live="polite"></p>
+        </div>
+
+        <!-- Повідомлення -->
+        <div class="min-w-0 md:col-span-2">
+          <div class="mb-1.5 flex items-baseline justify-between gap-3">
+            <label for="message" class="block text-sm font-medium text-slate-700">Повідомлення</label>
+            <span id="message-counter" class="text-xs tabular-nums text-slate-500" aria-hidden="true">0 / 1000</span>
+          </div>
+          <textarea
+            id="message" name="message" rows="5"
+            maxlength="1000" required
+            placeholder="Опишіть ваше питання (номер угоди, суму, що сталося)…"
+            aria-describedby="message-error"
+            class="field block min-h-32 w-full resize-y rounded-lg border border-slate-500 bg-white px-3 py-2 text-base text-slate-900 placeholder:text-slate-500 transition-colors duration-150 focus:outline-none focus:ring-2 focus:ring-emerald-600"></textarea>
+          <p id="message-error" class="field-message mt-1.5 min-h-5 text-sm break-words" aria-live="polite"></p>
+        </div>
+
+        <!-- Згода -->
+        <div class="min-w-0 md:col-span-2">
+          <div data-highlight-for="agreement" class="rounded-lg border border-transparent transition-colors duration-150">
+            <label for="agreement" class="flex min-h-11 cursor-pointer items-start gap-3 p-2 text-base text-slate-700">
+              <input
+                id="agreement" name="agreement" type="checkbox" value="yes" required
+                aria-describedby="agreement-error"
+                class="mt-0.5 h-5 w-5 shrink-0 cursor-pointer rounded focus:outline-none focus:ring-2 focus:ring-emerald-600 focus:ring-offset-2">
+              <span>Я погоджуюся на обробку персональних даних для відповіді на моє звернення.</span>
+            </label>
+          </div>
+          <p id="agreement-error" class="field-message mt-1.5 min-h-5 text-sm break-words" aria-live="polite"></p>
+        </div>
+
+        <div class="md:col-span-2">
+          <button
+            id="submit-btn" type="submit"
+            class="inline-flex min-h-11 w-full items-center justify-center rounded-lg bg-emerald-700 px-6 py-2.5 text-base font-semibold text-white transition-colors duration-150 hover:bg-emerald-800 focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald-600 focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-60 md:w-auto">
+            Надіслати
+          </button>
+        </div>
+      </form>
+    </section>
+  </main>
+
+  <!-- Модальне вікно успіху -->
+  <div
+    id="success-modal"
+    class="modal fixed inset-0 z-50 hidden items-center justify-center bg-slate-900/60 p-4"
+    role="dialog" aria-modal="true" aria-labelledby="modal-title" aria-describedby="modal-text">
+    <div id="modal-card" class="modal-card w-full max-w-md rounded-2xl bg-white p-6 shadow-xl">
+      <h2 id="modal-title" class="text-xl font-semibold text-slate-900">Форму заповнено правильно</h2>
+      <p id="modal-text" class="mt-3 text-base text-slate-600">
+        Це імітація надсилання: дані пройшли клієнтську валідацію, але нікуди не відправляються.
+      </p>
+      <div class="mt-6 flex justify-end">
+        <button
+          id="modal-close" type="button"
+          class="inline-flex min-h-11 items-center justify-center rounded-lg bg-slate-900 px-5 py-2.5 text-base font-medium text-white transition-colors duration-150 hover:bg-slate-700 focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald-600 focus-visible:ring-offset-2">
+          Закрити
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <script src="assets/js/validators.js"></script>
+  <script src="assets/js/validation.js"></script>
+</body>
+</html>

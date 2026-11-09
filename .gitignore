@@ -1,0 +1,19 @@
+# macOS
+.DS_Store
+
+# Редактори
+.vscode/
+.idea/
+*.swp
+
+# Залежності та збірки (на майбутнє)
+node_modules/
+dist/
+
+# Логи та локальні змінні
+*.log
+.env
+.env.*
+
+# Скриншоти з tests/browser-check.mjs
+screenshots/

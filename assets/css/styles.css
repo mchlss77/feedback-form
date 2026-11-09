@@ -1,0 +1,53 @@
+/*
+ * Доповнення до Tailwind (CDN).
+ * Основні стилі — утилітарні класи в index.html.
+ * Тут лише те, що незручно описати класами.
+ */
+
+/* Колір нативного чекбокса */
+input[type="checkbox"] {
+  accent-color: #047857; /* emerald-700 */
+}
+
+/* Hover лише для полів у нейтральному стані, щоб не перебивати червону/зелену рамку */
+.field:not([aria-invalid]):not(:focus):hover {
+  border-color: #334155; /* slate-700 */
+}
+
+/* Колір focus ring залежить від стану поля; контраст з білим фоном ≥ 3:1 (WCAG 1.4.11) */
+.field[aria-invalid="true"]:focus {
+  --tw-ring-color: rgb(239 68 68); /* red-500, 3.8:1 */
+}
+
+.field[aria-invalid="false"]:focus {
+  --tw-ring-color: rgb(22 163 74); /* green-600, 3.3:1 */
+}
+
+/* Поява модального вікна */
+.modal:not(.hidden) {
+  animation: modal-fade 150ms ease-out;
+}
+
+.modal:not(.hidden) .modal-card {
+  animation: modal-rise 150ms ease-out;
+}
+
+@keyframes modal-fade {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes modal-rise {
+  from { transform: translateY(8px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+/* Повага до налаштування «менше анімації» */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
